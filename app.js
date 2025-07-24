@@ -1,1 +1,3 @@
-console.log('Привет, мир!');
+// https://Piratezis.github.io/Practice - .html 
+document.getElementById('output').innerText = 'JavaScript работает!';
+
