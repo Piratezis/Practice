@@ -13,8 +13,8 @@
 const i of numbers_list == i for i in numbers_list  -- цикл for для массивов
 */ 
 // Ввод параметров
-let list_numbers = [];
-const len_list = 100;
+
+const list_len = 100;
 
 //Функции
 function generate_numbers(list_numbers_additional, len_list_additional){
@@ -30,23 +30,38 @@ function generate_numbers(list_numbers_additional, len_list_additional){
   }
 }
 
-function calculate_numbers(arr){
-  //Логика функции здесь
+function calculate_numbers(array, lenArray){
+  //Подсчет значений для списка здесь: среднее, 
   
+  len unique_list_numbers = [];
+  for (const i of array){
+   
   
 }
 
+ function calculate_lenArray(array){
+  //Подсчет длины списка
+  return calculate_numbers.length; 
+}
+ 
 //Вызов функций
-calculate_numbers(generate_numbers(list_numbers, len_list));
+let list_numbers_values = generate_numbers([], list_len);
+const list_numbers_len = calculate_lenArray(list_numbers_values);
+unique_list_numbers_values = uniq(list_numbers_values)
+count_average_numbers = ;
+count_long_average_numbers = ;
+count_lower_average_numbers =;
+calculate_numbers();
 
 //Вывод
-console.log("Массив:", numbers);
-console.log("Уникальные элементы:", uniqueNumbers);
-console.log("Количество элементов:", numbers.length);
-console.log("Среднее значение:", average);
-console.log("Выше среднего:", aboveAverageCount);
-console.log("Ниже среднего:", belowAverageCount);
-console.log("Ниже 20:", below20Count);
+console.log("Массив: ", list_numbers_values);
+console.log("Количество элементов: ", list_numbers_len); 
+console.log("Уникальные элементы: ", unique_list_numbers_values);
+
+console.log("Среднее значение: ", average);
+console.log("Выше среднего: ", aboveAverageCount);
+console.log("Ниже среднего: ", belowAverageCount);
+console.log("Ниже 20: ", below20Count);
 
 
 
