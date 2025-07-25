@@ -56,35 +56,17 @@ function calculate_lenArray(array){
 }
 
 // ___________________________________Функция вывода в html
-output_result_on_display(){
-  const result_container = document.getElementById('results');
-  
-  if (!resultsContainer) {
-    console.error('Элемент с id="results" не найден на странице');
-    return;
-  }
-
-  // Форматируем вывод
-  resultsContainer.innerHTML = 
-    <h2>Результаты анализа массива</h2>
-    <p><strong>Количество элементов:</strong> ${list_numbers_len}</p>
-    <p><strong>Среднее значение:</strong> ${average.toFixed(2)}</p>
-    <p><strong>Выше среднего:</strong> ${more_average_numbers}</p>
-    <p><strong>Ниже среднего:</strong> ${below_average_numbers}</p>
-    <p><strong>Ниже 20:</strong> ${below20_numbers}</p>
-    <p><strong>Уникальные элементы:</strong> ${unique_list_numbers.join(', ')}</p>
-    <p><strong>Полный массив:</strong> [${list_numbers_values.join(', ')}]</p>
-  ;
-}
+function output_result_on_display(list_numbers_len, average, more_average_numbers, below_average_numbers, below20_numbers, unique_list_numbers, list_numbers_values){
+  document.body.innerHTML = 
+  Количество элементов: ${list_numbers_len}
+  Среднее значение: ${average.toFixed(2)}
+  Выше среднего: ${more_average_numbers}
+  Ниже среднего: ${below_average_numbers}
+  Ниже 20: ${below20_numbers}
+  Уникальные элементы: ${unique_list_numbers.join(', ')}
+  Полный массив: ${list_numbers_values.join(', ')};
 }
 
-console.log("Массив: ", list_numbers_values);
-console.log("Количество элементов: ", list_numbers_len); 
-console.log("Уникальные элементы: ", unique_list_numbers);
-console.log("Среднее значение: ", average);
-console.log("Выше среднего: ", more_average_numbers);
-console.log("Ниже среднего: ", below_average_numbers);
-console.log("Ниже 20: ", below20_numbers);
 
 // Вызов функций
 let list_numbers_values = generate_numbers([], list_len);
@@ -92,7 +74,7 @@ const list_numbers_len = calculate_lenArray(list_numbers_values);
 
 let {unique_list_numbers, average, more_average_numbers, below_average_numbers, below20_numbers} = calculate_numbers(list_numbers_values, list_numbers_len);
 // Вызов вывода
-
+output_result_on_display(list_numbers_len, average, more_average_numbers, below_average_numbers, below20_numbers, unique_list_numbers, list_numbers_values);
 
 
 
