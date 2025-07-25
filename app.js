@@ -18,50 +18,82 @@ const list_len = 100;
 
 //Функции
 function generate_numbers(list_numbers_additional, len_list_additional){
-  //Логика генерации списка чисел
-
-  for (i = 0, i < len_list_additional, i++){
-    
-    new_random_number_fractional = Math.random();                            // Math.random() - генерит от 0.0 до 1.0  !
-    new_random_number_basic = Math.floor(new_random_number_fractional * 101); // .floor - округляет ВНИЗ до целого!
-    list_numbers.push(new_random_number);                                    //.push() == .append()
-    return list_numbers_additional;
-    
+  //Генерация списка из чисел
+  for (let i = 0; i < len_list_additional; i++){
+    let new_random_number_fractional = Math.random(); // генерит от 0.0 до 1.0
+    let new_random_number_basic = Math.floor(new_random_number_fractional * 101); // округляет вниз до целого
+    list_numbers_additional.push(new_random_number_basic); // добавляем в массив
   }
+  return list_numbers_additional;
 }
 
-function calculate_numbers(array, lenArray){
-  //Подсчет значений для списка здесь: среднее, 
+function calculate_numbers(array,list_numbers_len){
+  // Подсчет значений для списка здесь: среднее, уникальные значения и т.д.
+  let unique_list_numbers = [...new Set(array)]; // создание уникального списка
+  let sum = 0;
+
+  for (const num of array){
+    sum += num;
+  }
+
+  let average = sum / list_numbers_len; // среднее значение
+  let aboveAverageCount = calculate_lenArray(array.filter(num => num > average)); // количество элементов выше среднего
+  let belowAverageCount = calculate_lenArray(array.filter(num => num < average)); // количество элементов ниже среднего
+  let below20Count = calculate_lenArray(array.filter(num => num < 20));           // количество элементов ниже 20
+
+  return {
+    unique_list_numbers,
+    average,
+    more_average_numbers,
+    below_average_numbers,
+    below20_numbers
+  };
+}
+
+function calculate_lenArray(array){
+  //___________________________________ Подсчет длины списка
+  return array.length; 
+}
+
+// ___________________________________Функция вывода в html
+output_result_on_display(){
+  const result_container = document.getElementById('results');
   
-  len unique_list_numbers = [];
-  for (const i of array){
-   
-  
+  if (!resultsContainer) {
+    console.error('Элемент с id="results" не найден на странице');
+    return;
+  }
+
+  // Форматируем вывод
+  resultsContainer.innerHTML = 
+    <h2>Результаты анализа массива</h2>
+    <p><strong>Количество элементов:</strong> ${list_numbers_len}</p>
+    <p><strong>Среднее значение:</strong> ${average.toFixed(2)}</p>
+    <p><strong>Выше среднего:</strong> ${more_average_numbers}</p>
+    <p><strong>Ниже среднего:</strong> ${below_average_numbers}</p>
+    <p><strong>Ниже 20:</strong> ${below20_numbers}</p>
+    <p><strong>Уникальные элементы:</strong> ${unique_list_numbers.join(', ')}</p>
+    <p><strong>Полный массив:</strong> [${list_numbers_values.join(', ')}]</p>
+  ;
+}
 }
 
- function calculate_lenArray(array){
-  //Подсчет длины списка
-  return calculate_numbers.length; 
-}
- 
-//Вызов функций
-let list_numbers_values = generate_numbers([], list_len);
-const list_numbers_len = calculate_lenArray(list_numbers_values);
-unique_list_numbers_values = uniq(list_numbers_values)
-count_average_numbers = ;
-count_long_average_numbers = ;
-count_lower_average_numbers =;
-calculate_numbers();
-
-//Вывод
 console.log("Массив: ", list_numbers_values);
 console.log("Количество элементов: ", list_numbers_len); 
-console.log("Уникальные элементы: ", unique_list_numbers_values);
-
+console.log("Уникальные элементы: ", unique_list_numbers);
 console.log("Среднее значение: ", average);
-console.log("Выше среднего: ", aboveAverageCount);
-console.log("Ниже среднего: ", belowAverageCount);
-console.log("Ниже 20: ", below20Count);
+console.log("Выше среднего: ", more_average_numbers);
+console.log("Ниже среднего: ", below_average_numbers);
+console.log("Ниже 20: ", below20_numbers);
+
+// Вызов функций
+let list_numbers_values = generate_numbers([], list_len);
+const list_numbers_len = calculate_lenArray(list_numbers_values);
+
+let {unique_list_numbers, average, more_average_numbers, below_average_numbers, below20_numbers} = calculate_numbers(list_numbers_values, list_numbers_len);
+// Вызов вывода
+
+
 
 
 
