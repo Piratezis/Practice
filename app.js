@@ -55,18 +55,6 @@ function calculate_lenArray(let array){
   return array.length; 
 }
 
-// ___________________________________Функция вывода в html
-function output_result_on_display(let list_numbers_len, const average, const more_average_numbers, const below_average_numbers, const below20_numbers, let unique_list_numbers,let list_numbers_values){
-  document.body.innerHTML = '
-  Количество элементов: ${list_numbers_len}
-  Среднее значение: ${average.toFixed(2)}
-  Выше среднего: ${more_average_numbers}
-  Ниже среднего: ${below_average_numbers}
-  Ниже 20: ${below20_numbers}
-  Уникальные элементы: ${unique_list_numbers.join(', ')}
-  Полный массив: ${list_numbers_values.join(', ')} ';
-}
-
 
 // Вызов функций
 let list_numbers_values = generate_numbers([], list_len);
