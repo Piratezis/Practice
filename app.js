@@ -29,7 +29,7 @@ function generate_numbers(list_numbers_additional, len_list_additional){
 
 function calculate_numbers(array,list_numbers_len){
   // Подсчет значений для списка здесь: среднее, уникальные значения и т.д.
-  let unique_list_numbers = [...new Set(array)]; // создание уникального списка
+  let unique_list_numbers = [...new Set(array)]; // уникальный список
   let sum = 0;
 
   for (const num of array){
@@ -38,8 +38,8 @@ function calculate_numbers(array,list_numbers_len){
 
   let average = sum / list_numbers_len; // среднее значение
   let aboveAverageCount = calculate_lenArray(array.filter(num => num > average)); // количество элементов выше среднего
-  let belowAverageCount = calculate_lenArray(array.filter(num => num < average)); // количество элементов ниже среднего
-  let below20Count = calculate_lenArray(array.filter(num => num < 20));           // количество элементов ниже 20
+  let belowAverageCount = calculate_lenArray(array.filter(num => num < average)); // элементов ниже среднего
+  let below20Count = calculate_lenArray(array.filter(num => num < 20));           // элементов ниже 20
 
   return {
     unique_list_numbers,
