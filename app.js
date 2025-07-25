@@ -17,7 +17,7 @@ const i of numbers_list == i for i in numbers_list  -- цикл for для ма�
 const list_len = 100;
 
 //Функции
-function generate_numbers(list_numbers_additional, len_list_additional){
+function generate_numbers(let list_numbers_additional, const len_list_additional){
   //Генерация списка из чисел
   for (let i = 0; i < len_list_additional; i++){
     let new_random_number_fractional = Math.random(); // генерит от 0.0 до 1.0
@@ -27,7 +27,7 @@ function generate_numbers(list_numbers_additional, len_list_additional){
   return list_numbers_additional;
 }
 
-function calculate_numbers(array,list_numbers_len){
+function calculate_numbers(let array, const list_numbers_len){
   // Подсчет значений для списка здесь: среднее, уникальные значения и т.д.
   let unique_list_numbers = [...new Set(array)]; // уникальный список
   let sum = 0;
@@ -50,13 +50,13 @@ function calculate_numbers(array,list_numbers_len){
   };
 }
 
-function calculate_lenArray(array){
+function calculate_lenArray(let array){
   //___________________________________ Подсчет длины списка
   return array.length; 
 }
 
 // ___________________________________Функция вывода в html
-function output_result_on_display(list_numbers_len, average, more_average_numbers, below_average_numbers, below20_numbers, unique_list_numbers, list_numbers_values){
+function output_result_on_display(let list_numbers_len, const average, const more_average_numbers, const below_average_numbers, const below20_numbers, let unique_list_numbers,let list_numbers_values){
   document.body.innerHTML = '
   Количество элементов: ${list_numbers_len}
   Среднее значение: ${average.toFixed(2)}
