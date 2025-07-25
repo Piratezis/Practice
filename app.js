@@ -57,14 +57,14 @@ function calculate_lenArray(array){
 
 // ___________________________________Функция вывода в html
 function output_result_on_display(list_numbers_len, average, more_average_numbers, below_average_numbers, below20_numbers, unique_list_numbers, list_numbers_values){
-  document.body.innerHTML = 
+  document.body.innerHTML = '
   Количество элементов: ${list_numbers_len}
   Среднее значение: ${average.toFixed(2)}
   Выше среднего: ${more_average_numbers}
   Ниже среднего: ${below_average_numbers}
   Ниже 20: ${below20_numbers}
   Уникальные элементы: ${unique_list_numbers.join(', ')}
-  Полный массив: ${list_numbers_values.join(', ')};
+  Полный массив: ${list_numbers_values.join(', ')} ';
 }
 
 
