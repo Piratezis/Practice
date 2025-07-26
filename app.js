@@ -12,7 +12,8 @@
 Что нужно для рандомной генерации?
 Как импортировать?
 const i of numbers_list == i for i in numbers_list  -- цикл for для массивов
-*/ 
+*/
+
 // Ввод параметров
 
 const list_len = 100;
@@ -64,12 +65,15 @@ let list_numbers_values = generate_numbers([], list_len);
 const list_numbers_len = calculate_lenArray(list_numbers_values);
 
 let {unique_list_numbers, average, more_average_numbers, below_average_numbers, below20_numbers} = calculate_numbers(list_numbers_values, list_numbers_len);
-console.log("Список\n")
-console.log(unique_list_numbers, "\n")
+console.log("Список начальный:\n");
+console.log(list_numbers_values, "\n");
+console.log("Список уникальных значений:\n");
+console.log(unique_list_numbers, "\n");
 console.log("Среднее значени: ", average)
-console.log("Кол-во больше среднего: ", more_average_numbers)
-console.log("Количество меньше среднего: ", below_average_numbers)
-console.log("Кол-во меньше 20: ", below20_numbers)
+console.log("Кол-во больше среднего: ", more_average_numbers);
+console.log("Количество меньше среднего: ", below_average_numbers);
+console.log("Кол-во меньше 20: ", below20_numbers);
+
 
 
 
