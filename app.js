@@ -24,65 +24,55 @@ const i of numbers_list == i for i in numbers_list  -- цикл for для ма�
 
 // Ввод параметров
 
-const list_len = 100;
+const LenListNumbers = 100;
 
 //Функции
-function generate_numbers(list_numbers_additional, len_list_additional){
+function generate_numbers(ListNumbersAdditional, LenListAdditional){
   //Генерация списка из чисел
-  for (let i = 0; i < len_list_additional; i++){
-    let new_random_number_fractional = Math.random(); // генерит от 0.0 до 1.0
-    let new_random_number_basic = Math.floor(new_random_number_fractional * 101); // округляет вниз до целого
-    list_numbers_additional.push(new_random_number_basic); // добавляем в массив
+  for (let i = 0; i < LenListAdditional; i++){
+    let NewRandomNumberFractional = Math.random(); // генерит от 0.0 до 1.0
+    let NewRandomNumberBasic = Math.floor(NewRandomNumberFractional * 101); // округляет вниз до целого
+    ListNumbersAdditional.push(NewRandomNumberBasic); //в массив
   }
-  return list_numbers_additional;
+  return ListNumbersAdditional;
 }
 
-function calculate_numbers(array, list_numbers_len){
+function calculate_numbers(Array, LenListNumbers){
 
   // Подсчет значений для списка здесь: среднее, уникальные значения и т.д.
 
-  let unique_list_numbers = [...new Set(array)]; // уникальный список
-  let sum = 0;
+  let UniqueListNumbers = [...new Set(Array)]; // уникальный список
+  let Sum = 0;
 
-  for (const num of array){
-    sum += num;
+  for (const Num of Array){
+    Sum += Num;
   }
 
-  let average = sum / list_numbers_len; // среднее значение
-  let more_average_numbers = calculate_lenArray(array.filter(num => num > average)); // количество элементов выше среднего
-  let below_average_numbers = calculate_lenArray(array.filter(num => num < average)); // элементов ниже среднего
-  let below20_numbers = calculate_lenArray(array.filter(num => num < 20));           // элементов ниже 20
+  let Average = Sum / LenListNumbers; // среднее значение
+  let MoreAverageNumbers = (Array.filter(Num => Num > Average).length); // количество элементов выше среднего
+  let BelowAverageNumbers = (Array.filter(Num => Num < Average).length); // элементов ниже среднего
+  let Below20Numbers = (Array.filter(Num => Num < 20).length);           // элементов ниже 20
 
   return {
-    unique_list_numbers,
-    average,
-    more_average_numbers,
-    below_average_numbers,
-    below20_numbers
+    UniqueListNumbers,
+    Average,
+    MoreAverageNumbers,
+    BelowAverageNumbers,
+    Below20Numbers
   };
 }
 
-function calculate_lenArray(array){
-  //___________________________________ Подсчет длины списка
-  return array.length; 
-}
-
-
 // Вызов функций
-let list_numbers_values = generate_numbers([], list_len);
-const list_numbers_len = calculate_lenArray(list_numbers_values);
+let ListNumbers= generate_numbers([], LenListNumbers);
 
-let {unique_list_numbers, average, more_average_numbers, below_average_numbers, below20_numbers} = calculate_numbers(list_numbers_values, list_numbers_len);
+
+let {UniqueListNumbers, Average, MoreAverageNumbers, BelowAverageNumbers, Below20Numbers} = calculate_numbers(ListNumbers, LenListNumbers);
 console.log("Список начальный:\n");
-console.log(list_numbers_values, "\n");
+console.log(ListNumbers, "\n");
 console.log("Список уникальных значений:\n");
-console.log(unique_list_numbers, "\n");
-console.log("Среднее значени: ", average)
-console.log("Кол-во больше среднего: ", more_average_numbers);
-console.log("Количество меньше среднего: ", below_average_numbers);
-console.log("Кол-во меньше 20: ", below20_numbers);
-
-
-
-
+console.log(UniqueListNumbers, "\n");
+console.log("Среднее значени: ", Average)
+console.log("Кол-во больше среднего: ", MoreAverageNumbers);
+console.log("Количество меньше среднего: ", BelowAverageNumbers);
+console.log("Кол-во меньше 20: ", Below20Numbers);
 
